@@ -1,0 +1,112 @@
+<!-- templates/pro_photoshop.html -->
+{% extends "master.html" %}
+{% block title %}Home - Sun Sareth{% endblock %}
+{% block content %}
+<section id="home">
+  <header>
+    <h1 style="margin-top: 100px"><i class="fa-solid fa-paintbrush"></i> Photoshop Projects</h1>
+    <p>Showcasing my creative work and design experiments</p>
+  </header>
+
+  <section class="projects">
+    <!-- Example Project 1 -->
+    <div class="card">
+      <img src="{{ url_for('static', filename='images/logo_Rithika.png') }}" id="profileImg" alt="Photoshop Project 1">
+      <h3>Logo Design</h3>
+      <p>A modern logo style kbach Khmer created with Photoshop blending techniques.</p>
+      <a href="images/project1-full.jpg">
+        <!-- View Project Button -->
+        <button class="btn btn-primary" onclick="showProjectModal()">
+        <i class="fas fa-eye"></i> View Project
+        </button>
+      </a>
+    </div>
+
+    <!-- Example Project 2 -->
+    <div class="card">
+      <img src="{{ url_for('static', filename='images/rtka.png') }}" id="profileImg" alt="Photoshop Project 2">
+      <h3>Logo Design</h3>
+      <p>A modern logo style created with Photoshop blending techniques.</p>
+        <a href="images/project1-full.jpg">
+        <!-- View Project Button -->
+        <button class="btn btn-primary" onclick="showProjectModal()">
+        <i class="fas fa-eye"></i> View Project
+        </button>
+      </a>
+    </div>
+
+    <!-- Example Project 3 -->
+    <div class="card">
+      <img src="{{ url_for('static', filename='images/menu.png') }}" id="profileImg" alt="Photoshop Project 3">
+      <h3>Poster Menu Foods</h3>
+      <p>A poster menu foods professional branding mockup for a client project.</p>
+       <a href="images/project1-full.jpg">
+        <!-- View Project Button -->
+        <button class="btn btn-primary" onclick="showProjectModal()">
+        <i class="fas fa-eye"></i> View Project
+        </button>
+      </a>
+    </div>
+  </section>
+<!-- Project Modal -->
+<div id="projectModal" class="modal">
+  <div class="modal-content card">
+    <div class="modal-header">
+      <h3>Project Files</h3>
+      <span class="close" onclick="closeModal('projectModal')">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div class="file-list">
+        <div class="file-item">
+          <i class="fas fa-file-ai file-icon"></i>
+          <div class="file-info">
+            <p class="file-name">Logo_Rithika.ai</p>
+            <p class="file-size">2.3 MB</p>
+          </div>
+          <a href="files/logo_Rithika.ai" class="btn btn-download" download>Download</a>
+        </div>
+
+        <div class="file-item">
+          <i class="fas fa-file-archive file-icon"></i>
+          <div class="file-info">
+            <p class="file-name">Project2.rar</p>
+            <p class="file-size">15 MB</p>
+          </div>
+          <a href="files/project2.rar" class="btn btn-download" download>Download</a>
+        </div>
+
+        <div class="file-item">
+          <i class="fas fa-file-alt file-icon"></i>
+          <div class="file-info">
+            <p class="file-name">Project3.txt</p>
+            <p class="file-size">50 KB</p>
+          </div>
+          <a href="files/project3.txt" class="btn btn-download" download>Download</a>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('projectModal')">Close</button>
+    </div>
+  </div>
+</div>
+<!-- JS -->
+<script>
+function showProjectModal() {
+    document.getElementById('projectModal').style.display = 'block';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Optional: Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('projectModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+  </section>
+{% endblock %}

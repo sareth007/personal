@@ -1,0 +1,75 @@
+{% extends "master.html" %}
+{% block title %}Home - Sun Sareth{% endblock %}
+{% block content %}
+<section id="profile" class="section active">
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="profile-image">
+                <img src="{{ url_for('static', filename='images/profile.JPG') }}" alt="Sun Sareth" id="profileImg">
+            </div>
+            <div class="profile-info">
+                <h1 id="profileName">Sun Sareth</h1>
+                <p class="major" id="profileMajor">Full Stack Developer</p>
+                <p class="bio">
+                    Passionate about creating amazing web experiences and
+                    solving complex problems through code. Skilled in designing posters,
+                    banners, and video editing.
+                </p>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="profile-stats">
+            <div class="stat">
+                <i class="fas fa-code"></i>
+                <h3>50+</h3>
+                <p>Projects</p>
+            </div>
+            <div class="stat">
+                <i class="fas fa-users"></i>
+                <h3>100+</h3>
+                <p>Clients</p>
+            </div>
+            <div class="stat">
+                <i class="fas fa-award"></i>
+                <h3>5+</h3>
+                <p>Awards</p>
+            </div>
+        </div>
+
+        <!-- Project Links -->
+        <div class="profile-stats">
+            <a href="{{ url_for('pro_photoshop') }}" class="stat-link">
+                <div class="stat">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Photoshop</h3>
+                    <p>Projects</p>
+                </div>
+            </a>
+            <a href="{{ url_for('pro_ai') }}" class="stat-link">
+                <div class="stat">
+                    <i class="fas fa-pen-nib"></i>
+                    <h3>Illustrator</h3>
+                    <p>Projects</p>
+                </div>
+            </a>
+            <a href="{{ url_for('pro_photoshop') }}" class="stat-link">
+                <div class="stat">
+                    <i class="fas fa-video"></i>
+                    <h3>Premiere</h3>
+                    <p>Projects</p>
+                </div>
+            </a>
+            <a href="{{ url_for('pro_photoshop') }}" class="stat-link">
+                <div class="stat">
+                    <i class="fas fa-magic"></i>
+                    <h3>After Effects</h3>
+                    <p>Projects</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
