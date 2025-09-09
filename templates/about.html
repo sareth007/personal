@@ -1,10 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "master.html" %}
+{% block title %}Home - Sun Sareth{% endblock %}
+{% block content %}
+<section id="home">
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <section class="section active" id="about">
+                <div class="section-header">
+                    <h2><i class="fas fa-user"></i> About Me</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>My name is Sun Sareth. I am 22 years old.</p>
+                        <p>
+            I'm a passionate professional with a strong background in <b>web development</b> and
+            <b>digital design</b>. I thrive on creating amazing web experiences and solving complex
+            problems through code.
+        </p>
+        <p>
+            With skills in <b>poster design</b>, <b>banner design</b>, and <b>video editing</b>,
+            I combine creativity and technical expertise to deliver impactful results that
+            communicate effectively and look stunning.
+        </p>
+        <p>
+            My journey is fueled by <b>continuous learning</b>, curiosity, and a love for tackling
+            new challenges. I enjoy collaborating with others to build meaningful solutions
+            that make a difference.
+        </p>
+        <p>
+            Outside of work, I enjoy creative hobbies and activities that keep me inspired and
+            bring fresh perspectives to my projects.
+        </p>
+                        <div class="skills">
+                            <h4>Skills</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                                <span class="skill-tag">JAVA</span>
+                                <span class="skill-tag">UI/UX Design</span>
+                                <span class="skill-tag">Graphic Design</span>
+                                <span class="skill-tag">Videos Editor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+  </section>
+{% endblock %}

@@ -1,10 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "master.html" %}
+{% block title %}Home - Sun Sareth{% endblock %}
+{% block content %}
+<section id="home">
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <section class="section active" id="contact">
+                <div class="section-header">
+                    <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
+                </div>
+                <div class="contact-content">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out to me through any of the following channels. I'm always excited to connect and discuss new opportunities!</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <a href="mailto:sunsareth002@gmail.com" style="text-decoration: none; color: inherit;">
+                                    <i class="fas fa-envelope"></i> sunsareth002@gmail.com
+                                </a>
+                            </div>
+                           <div class="contact-item">
+                                <a href="tel:+855886200002" style="text-decoration: none; color: inherit;">
+                                    <i class="fas fa-phone"></i> (+855) 88 620 0002
+                                </a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Toul Kork, Phnom Penh</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/sareth007/SU3353_POS_API.git" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://twitter.com" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://github.com" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://t.me/sunsareth002" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                    <!-- Contact Form -->
+                   <!-- Contact Form -->
+<div class="contact-form">
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+    <div id="formResponse" style="margin-top:10px;"></div>
+</div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        Message sent successfully!
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault(); // Prevent page reload
+
+    const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: 'Contact Form Message',
+        message: document.getElementById('message').value
+    };
+
+    fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        const responseDiv = document.getElementById('formResponse');
+        if(result.success){
+            responseDiv.innerHTML = `<span style="color:green">${result.message}</span>`;
+            document.getElementById('contactForm').reset();
+        } else {
+            responseDiv.innerHTML = `<span style="color:red">${result.message}</span>`;
+        }
+    })
+    .catch(error => {
+        document.getElementById('formResponse').innerHTML = `<span style="color:red">An error occurred. Please try again.</span>`;
+        console.error('Error:', error);
+    });
+});
+        // Simple form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const notification = document.getElementById('notification');
+            notification.classList.add('show', 'success');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+            this.reset();
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+  </section>
+{% endblock %}

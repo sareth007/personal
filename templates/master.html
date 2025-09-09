@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sun Sareth - Personal Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+    </style>
 <body>
-$END$
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-code"></i> Sun Sareth
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="profile">
+                    <a href="{{ url_for('index') }}">
+                        <i class="fas fa-user"></i> My Profile
+                    </a>
+                </li>
+                <li class="nav-item" data-section="myevent">
+                    <a href="{{ url_for('myevent') }}">
+                        <i class="fas fa-calendar"></i> Events
+                    </a>
+                </li>
+                <li class="nav-item" data-section="about">
+                    <a href="{{ url_for('about_page') }}">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+                <li class="nav-item" data-section="my_contact">
+                    <a href="{{ url_for('my_contact') }}">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dynamic Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Notifications -->
+    <div id="notification" class="notification"></div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
